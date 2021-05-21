@@ -37,3 +37,11 @@ documentation.
     );
     
     $recordId = $response->getRecord()->getId();
+
+## Known issues
+The Hetzner DNS API has some bugs. The bugs have been reported but 
+yet not fixed for several months. The following functions are affected:
+
+* getAllRecords (pagination seams not to work correctly)
+* bulkUpdateRecords
+* validateZoneFilePlain (valid records are not returned)
