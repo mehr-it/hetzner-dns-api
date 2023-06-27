@@ -15,8 +15,6 @@
 
 
         public function __construct($array) {
-        	parent::__construct();
-
         	$this->array = $array;
 
             ksort($this->array);
@@ -26,10 +24,10 @@
 
 
 
-	    	    /**
+        /**
          * @inheritdoc
          */
-        public function evaluate($other, $description = '', $returnResult = false) {
+        public function evaluate(mixed $other, string $description = '', bool $returnResult = false): ?bool {
             // If $this->value and $other are identical, they are also equal.
             if ($this->array === $other) {
                 return true;
