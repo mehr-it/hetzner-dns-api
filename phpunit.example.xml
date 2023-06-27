@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php"
-         backupGlobals="false"
-         backupStaticAttributes="false"
-         colors="true"
-         verbose="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false">
-    <testsuites>
-        <testsuite name="Cases">
-            <directory>test</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
-    <php>
-        <env name="API_TOKEN" value="your-api-token"/>
-        <!-- CAUTION: Test zones will be deleted and recreated. Do not use any zone names from production systems -->
-        <env name="TEST_ZONE_NAME" value="test-zone-1.de"/>
-        <env name="TEST_ZONE2_NAME" value="test-zone-2.de"/>
-    </php>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.2/phpunit.xsd"
+    backupGlobals="false"
+    backupStaticProperties="false"
+    colors="true"
+    processIsolation="false"
+    stopOnFailure="false"
+    cacheDirectory=".phpunit.cache">
+  <coverage/>
+  <testsuites>
+    <testsuite name="Cases">
+      <directory>test</directory>
+    </testsuite>
+  </testsuites>
+  <source>
+    <include>
+      <directory suffix=".php">src/</directory>
+    </include>
+  </source>
+  <php>
+    <env name="API_TOKEN" value="your-api-token"/>
+    <!-- CAUTION: Test zones will be deleted and recreated. Do not use any zone names from production systems -->
+    <env name="TEST_ZONE_NAME" value="test-zone-1.de"/>
+    <env name="TEST_ZONE2_NAME" value="test-zone-2.de"/>
+  </php>
 </phpunit>
