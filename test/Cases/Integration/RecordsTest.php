@@ -117,6 +117,8 @@
 		}
 
 		public function testGetAllRecords() {
+			$this->markTestSkipped('Skipped due to bug in Hetzner API');
+
 			$zoneName = $this->getEnv('TEST_ZONE_NAME');
 
 			// create zone
@@ -143,7 +145,7 @@
 					$this->assertLessThan(time() + 30, $currRecord->getCreated()->getTimestamp());
 					$this->assertGreaterThan(time() - 30, $currRecord->getModified()->getTimestamp());
 					$this->assertLessThan(time() + 30, $currRecord->getModified()->getTimestamp());
-					
+
 					$record1Seen = true;
 				}
 				elseif ($currRecord->getId() === $recordId2) {
